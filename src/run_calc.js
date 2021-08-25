@@ -14,7 +14,7 @@ export const run_calc = (left, right, operator, value) => {
       } else if (left !== "" && right !== "") {
         console.log("value is '='");
         left = eval(left + operator + right) + "";
-        operator = null;
+        operator = "=";
         right = "";
       }
     } else {
@@ -41,6 +41,10 @@ export const run_calc = (left, right, operator, value) => {
     if (operator === null) {
       left = left + value;
       console.log("operator null and value is number");
+    } else if (operator === "=") {
+      left = value;
+      right = "";
+      operator = null;
     } else {
       right = right + value;
     }

@@ -9,7 +9,7 @@ test("renders learn react link", () => {
   render(<App />);
 });
 
-test("press first time number 1 => put 1 to the left", () => {
+test("1: press first time number 1 => put 1 to the left", () => {
   expect(run_calc("", "", null, "1")).toEqual({
     left: "1",
     right: "",
@@ -18,7 +18,7 @@ test("press first time number 1 => put 1 to the left", () => {
   });
 });
 
-test("press '+' after number 1 => operator is '+'", () => {
+test("2: press '+' after number 1 => operator is '+'", () => {
   expect(run_calc("1", "", null, "+")).toEqual({
     left: "1",
     right: "",
@@ -27,7 +27,7 @@ test("press '+' after number 1 => operator is '+'", () => {
   });
 });
 
-test("press number 1 after '+' => put 1 str to the right", () => {
+test("3: press number 1 after '+' => put 1 str to the right", () => {
   expect(run_calc("1", "", "+", "1")).toEqual({
     left: "1",
     right: "1",
@@ -36,16 +36,16 @@ test("press number 1 after '+' => put 1 str to the right", () => {
   });
 });
 
-test("press '=' if left '1' and right '1' => get '2' and put to the left", () => {
+test("4: press '=' if left '1' and right '1' => get '2' and put to the left", () => {
   expect(run_calc("1", "1", "+", "=")).toEqual({
     left: "2",
     right: "",
-    operator: null,
+    operator: "=",
     value: "=",
   });
 });
 
-test("press '1' after '1' => get '11' and put to the left", () => {
+test("5: press '1' after '1' => get '11' and put to the left", () => {
   expect(run_calc("1", "", null, "1")).toEqual({
     left: "11",
     right: "",
@@ -54,7 +54,7 @@ test("press '1' after '1' => get '11' and put to the left", () => {
   });
 });
 
-test("press '1' after '+' => get '1' and put to the right", () => {
+test("6: press '1' after '+' => get '1' and put to the right", () => {
   expect(run_calc("11", "", "+", "1")).toEqual({
     left: "11",
     right: "1",
@@ -63,16 +63,16 @@ test("press '1' after '+' => get '1' and put to the right", () => {
   });
 });
 
-test("press '=' after '1' => get '12' and put to the left", () => {
+test("7: press '=' after '1' => get '12' and put to the left", () => {
   expect(run_calc("11", "1", "+", "=")).toEqual({
     left: "12",
     right: "",
-    operator: null,
+    operator: "=",
     value: "=",
   });
 });
 
-test("press 'c' => reset", () => {
+test("8: press 'c' => reset", () => {
   expect(run_calc("11", "1", "+", "c")).toEqual({
     left: "",
     right: "",
@@ -81,7 +81,7 @@ test("press 'c' => reset", () => {
   });
 });
 
-test("'+' after evaluation left", () => {
+test("9: '+' after evaluation left", () => {
   expect(run_calc("11", "", "+", "+")).toEqual({
     left: "11",
     right: "",
