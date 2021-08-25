@@ -10,7 +10,8 @@ export const run_calc = (left, right, operator, value) => {
   ) {
     if (value === "=") {
       if (right === "") {
-        return;
+        console.log("right is empty");
+        return { left, right, operator, value };
       } else if (left !== "" && right !== "") {
         console.log("value is '='");
         left = eval(left + operator + right) + "";

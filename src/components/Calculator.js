@@ -17,8 +17,10 @@ export default function Calculator() {
   };
 
   return (
-    <div className="calculator">
-      <Result result={state.left === "" ? 0 : state.left} />
+    <div className="calculator container">
+      <Result
+        result={state.left === "" || state.left === undefined ? 0 : state.left}
+      />
       {console.log(state)}
       <ButtonsList onClick={handleClickOnButton} />
     </div>

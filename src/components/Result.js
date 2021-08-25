@@ -1,3 +1,3 @@
 export default function Result({ result }) {
-  return <p>{result}</p>;
+  return <p className="result item">{result}</p>;
 }

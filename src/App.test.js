@@ -5,7 +5,7 @@ import { run_calc } from "./run_calc";
 // const run_calc = require("./run_calc");
 //const sum = require('./sum');
 
-test("renders learn react link", () => {
+test("renders App", () => {
   render(<App />);
 });
 
@@ -87,5 +87,14 @@ test("9: '+' after evaluation left", () => {
     right: "",
     operator: "+",
     value: "+",
+  });
+});
+
+test("10: value is '=', but right is emprt => return same params", () => {
+  expect(run_calc("11", "", "+", "=")).toEqual({
+    left: "11",
+    right: "",
+    operator: "+",
+    value: "=",
   });
 });
