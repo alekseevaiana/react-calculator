@@ -71,6 +71,7 @@ p {
   }
 
   .container {
+    margin-top: 157px;
     width: 100%;
     height: 60vh;
     grid-gap: 10px;
