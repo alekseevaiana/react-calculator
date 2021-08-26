@@ -16,11 +16,16 @@ export default function Calculator() {
     setState(run_calc(state.left, state.right, state.operator, e.target.value));
   };
 
+  const result = (state) => {
+    if (state.right != "") {
+      return state.right;
+    } else {
+      return state.left === "" ? 0 : state.left;
+    }
+  };
   return (
     <div className="calculator container">
-      <Result
-        result={state.left === "" || state.left === undefined ? 0 : state.left}
-      />
+      <Result result={result(state)} />
       {console.log(state)}
       <ButtonsList onClick={handleClickOnButton} />
     </div>
