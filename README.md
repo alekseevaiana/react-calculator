@@ -1,5 +1,9 @@
 # React calculator
 
+## See demo version
+
+go to [https://react-calculator-iana.herokuapp.com]
+
 ## To run the app
 
 In the project directory, you can run:
