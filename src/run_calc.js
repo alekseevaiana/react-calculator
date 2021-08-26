@@ -1,5 +1,6 @@
 function check_len(string) {
-  if (string.length > 14) {
+  const MAX_LEN = 10;
+  if (string.length > MAX_LEN) {
     return true;
   } else {
     return false;
@@ -48,7 +49,7 @@ export const run_calc = (left, right, operator, value) => {
     }
   } else if (NUMBER) {
     if (operator === null) {
-      if (left.length > 14) {
+      if (check_len(left)) {
         return { left, right, operator, value };
       } else {
         left = left + value;
@@ -58,7 +59,11 @@ export const run_calc = (left, right, operator, value) => {
       right = "";
       operator = null;
     } else {
-      right = right + value;
+      if (check_len(right)) {
+        return { left, right, operator, value };
+      } else {
+        right = right + value;
+      }
     }
   } else if (RESET_SYMBOL) {
     left = EMPTY;
