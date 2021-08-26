@@ -14,55 +14,45 @@ function calculate_result(string) {
 }
 
 export const run_calc = (left, right, operator, value) => {
-  let result = 0;
-  // if value is operator
-  console.log("==========================");
-  if (
+  const OPERATOR_SYMBOL =
     value === "+" ||
     value === "-" ||
     value === "/" ||
     value === "*" ||
-    value === "="
-  ) {
+    value === "=";
+  const RESET_SYMBOL = value === "c";
+  const EMPTY = "";
+  const NUMBER = parseInt(value) >= 0 || parseInt(value) <= 9;
+
+  if (OPERATOR_SYMBOL) {
     if (value === "=") {
-      if (right === "") {
-        console.log("right is empty");
+      if (right === EMPTY) {
         return { left, right, operator, value };
-      } else if (left !== "" && right !== "") {
-        console.log("value is '='");
+      } else if (left !== EMPTY && right !== EMPTY) {
         left = calculate_result(left + operator + right);
         operator = "=";
-        right = "";
+        right = EMPTY;
       }
     } else {
-      if (left !== "" && right === "") {
-        console.log("left is NOT empty and right is empty");
+      if (left !== EMPTY && right === EMPTY) {
         operator = value;
-      } else if (left !== "" && right !== "") {
-        console.log(
-          "if left is NOT empty and right is NOT empty and operator is " +
-            operator
-        );
+      } else if (left !== EMPTY && right !== EMPTY) {
         left = calculate_result(left + operator + right);
-        right = "";
+        right = EMPTY;
         if (operator !== null && operator !== "=") {
           operator = value;
         } else {
-          console.log("reset operator");
           operator = null;
         }
       }
     }
-    // else if it is a number
-  } else if (parseInt(value) >= 0 || parseInt(value) <= 9) {
+  } else if (NUMBER) {
     if (operator === null) {
       if (left.length > 14) {
         return { left, right, operator, value };
       } else {
         left = left + value;
       }
-      console.log("left len is " + left.length);
-      console.log("operator null and value is number");
     } else if (operator === "=") {
       left = value;
       right = "";
@@ -70,10 +60,9 @@ export const run_calc = (left, right, operator, value) => {
     } else {
       right = right + value;
     }
-  } else if (value === "c") {
-    console.log("value is c");
-    left = "";
-    right = "";
+  } else if (RESET_SYMBOL) {
+    left = EMPTY;
+    right = EMPTY;
     operator = null;
   }
   return { left, right, operator, value };
