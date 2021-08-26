@@ -52,3 +52,13 @@ p {
 .button:active {
   box-shadow: none;
 }
+
+.count-btn {
+  background-color: #6fcf97;
+  color: white;
+}
+
+.reset-btn {
+  background-color: #eb5757;
+  color: white;
+}

@@ -15,9 +15,9 @@ export default function ButtonsList({ onClick }) {
       <Button value="8" className="item button " onClick={onClick} />
       <Button value="9" className="item button " onClick={onClick} />
       <Button value="*" className="item button" onClick={onClick} />
-      <Button value="c" className="item button" onClick={onClick} />
+      <Button value="c" className="item button reset-btn" onClick={onClick} />
       <Button value="0" className="item button" onClick={onClick} />
-      <Button value="=" className="item button" onClick={onClick} />
+      <Button value="=" className="item button count-btn" onClick={onClick} />
       <Button value="/" className="item button" onClick={onClick} />
     </>
   );
