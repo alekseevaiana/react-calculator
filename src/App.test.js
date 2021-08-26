@@ -2,9 +2,6 @@ import { render, screen } from "@testing-library/react";
 import App from "./App";
 import { run_calc } from "./run_calc";
 
-// const run_calc = require("./run_calc");
-//const sum = require('./sum');
-
 test("renders App", () => {
   render(<App />);
 });

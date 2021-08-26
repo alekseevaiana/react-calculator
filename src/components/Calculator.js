@@ -23,10 +23,10 @@ export default function Calculator() {
       return state.left === "" ? 0 : state.left;
     }
   };
+
   return (
     <div className="calculator container">
       <Result result={result(state)} />
-      {console.log(state)}
       <ButtonsList onClick={handleClickOnButton} />
     </div>
   );
