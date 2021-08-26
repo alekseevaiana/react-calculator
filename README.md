@@ -4,6 +4,9 @@
 
 In the project directory, you can run:
 
+`yarn instal`
+install all dependencies
+
 `yarn start`
 
 Runs the app in the development mode.\
