@@ -10,7 +10,7 @@ function check_len(string) {
 function calculate_result(string) {
   let result = eval(string);
   result = Math.round(result * 100000) / 100000;
-  result = check_len(result) ? "Too long" : result + "";
+  result = check_len(result.toString()) ? "Too long" : result + "";
   return result;
 }
 
@@ -30,6 +30,7 @@ export const run_calc = (left, right, operator, value) => {
       if (right === EMPTY) {
         return { left, right, operator, value };
       } else if (left !== EMPTY && right !== EMPTY) {
+        console.log("calculate");
         left = calculate_result(left + operator + right);
         operator = "=";
         right = EMPTY;
